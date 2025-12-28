@@ -17,7 +17,7 @@ export const CATEGORY_TRANSLATIONS: Record<string, { slug: string; name: string 
 // Tag translations (English slug -> French slug + name)
 export const TAG_TRANSLATIONS: Record<string, { slug: string; name: string }> = {
   // Beta & Coverage
-  'fizz-beta': { slug: 'fizz-beta', name: 'Fizz Bêta' },
+  '
   'fizz-bc-coverage': { slug: 'fizz-couverture-cb', name: 'Fizz Couverture CB' },
   'fizz-alberta': { slug: 'fizz-alberta', name: 'Fizz Alberta' },
   'fizz-calgary': { slug: 'fizz-calgary', name: 'Fizz Calgary' },
