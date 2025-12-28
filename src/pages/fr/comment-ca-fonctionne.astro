@@ -1,0 +1,214 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features from '~/components/widgets/Features.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import HowToSchema from '~/components/common/HowToSchema.astro';
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+
+const metadata = {
+  title: 'Comment Obtenir Votre Rabais Fizz de 40 $',
+  description:
+    'Apprenez comment utiliser notre code promo Fizz pour obtenir un crédit de 40 $. Guide étape par étape pour réclamer votre rabais.',
+};
+
+// Steps data for HowTo schema (French)
+const howToSteps = [
+  {
+    name: 'Inscrivez-vous à Fizz',
+    text: 'Allez sur Fizz.ca et inscrivez-vous en ligne. Choisissez parmi les forfaits mobiles ou internet. Sans contrat!',
+  },
+  {
+    name: 'Entrez le Code Promo',
+    text: 'Entrez le code promo HN9SM lors du paiement pour activer votre crédit de 40 $.',
+  },
+  {
+    name: 'Obtenez Votre Rabais',
+    text: 'Votre crédit de 40 $ est appliqué après deux mois. Gardez votre forfait actif pour obtenir les économies.',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <!-- HowTo Schema for rich snippets -->
+  <HowToSchema
+    name={metadata.title}
+    description={metadata.description}
+    steps={howToSteps}
+    totalTime="PT10M"
+    language="fr-CA"
+  />
+
+  <HeroText title={metadata.title}>
+    <Fragment slot="subtitle">
+      Suivez notre guide simple étape par étape pour réclamer votre rabais de code promo Fizz et commencer à économiser
+      sur le mobile et l'internet.
+    </Fragment>
+  </HeroText>
+
+  <Steps
+    title="Comment Obtenir Votre Rabais"
+    subtitle="Suivez ces étapes simples pour réclamer votre crédit de 40 $ avec le code promo Fizz"
+    items={[
+      {
+        title: 'Inscrivez-vous à Fizz',
+        description:
+          '<a href="https://fizz.ca/?ref=HN9SM" target="_blank" rel="noopener noreferrer" class="underline hover:text-purple-600">Cliquez ici</a> et inscrivez-vous à Fizz en ligne. Choisissez parmi les forfaits mobiles ou internet. <span class="font-bold">Sans contrat!</span>',
+        icon: 'tabler:user-plus',
+      },
+      {
+        title: 'Entrez le Code Promo',
+        description:
+          'Entrez le code promo <span class="font-bold">HN9SM</span> lors du paiement pour activer votre <span class="font-bold">crédit de 40 $</span>.',
+        icon: 'tabler:writing-sign',
+      },
+      {
+        title: 'Obtenez Votre Rabais',
+        description:
+          'Votre crédit de 40 $ est appliqué après deux mois. <span class="font-bold">Gardez votre forfait actif pour obtenir les économies!</span>',
+        icon: 'tabler:gift',
+      },
+    ]}
+  >
+    <Fragment slot="footer">
+      <p class="text-center text-lg text-muted-foreground">
+        Le processus complet prend moins de 10 minutes. <strong>Aucune vérification de crédit requise.</strong>
+      </p>
+    </Fragment>
+  </Steps>
+
+  <div class="bg-gray-50 dark:bg-slate-800">
+    <Steps
+      title="Guide de configuration détaillé"
+      items={[
+        {
+          title: '1. Inscrivez-vous à Fizz',
+          description:
+            '<a href="https://fizz.ca/?ref=HN9SM" target="_blank" rel="noopener noreferrer" class="underline hover:text-purple-600">Cliquez ici</a> pour aller sur Fizz.ca et créer votre compte. Choisissez parmi les forfaits mobiles ou internet.<br/><br/>Pas besoin d\'application : inscrivez-vous directement en ligne.',
+          icon: 'tabler:user-plus',
+        },
+        {
+          title: '2. Créez votre compte',
+          description:
+            "Ouvrez l'application et appuyez sur « S'inscrire ». Vous devrez fournir :<br/>- Nom légal complet<br/>- Date de naissance<br/>- Adresse canadienne<br/>- Adresse courriel et numéro de téléphone<br/>- Mode de paiement (carte de crédit ou débit)",
+          icon: 'tabler:user-plus',
+        },
+        {
+          title: '3. Choisissez votre forfait',
+          description:
+            'Sélectionnez parmi les forfaits mobiles ou internet Fizz. Personnalisez votre forfait avec les options de données, appels et textos dont vous avez besoin. Les forfaits Fizz sont entièrement personnalisables sans engagement minimum.',
+          icon: 'tabler:list-check',
+        },
+        {
+          title: '4. Entrez le code promo',
+          description:
+            'Lors du paiement, cherchez le champ de code promo. Entrez le code <strong>HN9SM</strong> pour appliquer votre crédit de 40 $. Le crédit sera appliqué après deux mois.',
+          icon: 'tabler:ticket',
+        },
+        {
+          title: '5. Activez votre service',
+          description:
+            "Complétez votre commande et activez votre service. Si vous avez choisi l'eSIM, vous pouvez activer instantanément. Si vous avez besoin d'une carte SIM physique, elle sera postée. Votre crédit de 40 $ sera appliqué après deux mois!",
+          icon: 'tabler:confetti',
+        },
+      ]}
+    />
+  </div>
+
+  <Features
+    title="Conseils de pro"
+    columns={2}
+    items={[
+      {
+        title: 'À faire',
+        description:
+          ' Entrez le code promo lors du paiement<br/> Comparez les forfaits pour trouver la meilleure valeur<br/> Activez le report de données<br/> Vérifiez les avantages fidélité à mesure que vous restez plus longtemps',
+        icon: 'tabler:check',
+      },
+      {
+        title: 'À éviter',
+        description:
+          " N'oubliez pas d'entrer le code promo<br/> Ne payez pas trop pour des données que vous n'utiliserez pas<br/> N'oubliez pas de vérifier la couverture dans votre région<br/> N'ignorez pas le système de récompenses fidélité",
+        icon: 'tabler:x',
+      },
+    ]}
+  />
+
+  <div class="bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto px-4 py-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 font-heading text-purple-600 dark:text-purple-400">
+        Prêt à Obtenir Votre Rabais?
+      </h2>
+      <p class="text-lg text-muted-foreground mb-8">
+        Utilisez notre code promo pour obtenir un crédit de 40 $ sur votre forfait Fizz.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Copy Code Button -->
+        <button
+          id="hiw-copy-btn"
+          type="button"
+          class="flex items-center justify-center gap-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          <span id="hiw-copy-text">Copier le Code Promo</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </button>
+        <!-- Visit Fizz Button -->
+        <a
+          href="https://fizz.ca/?ref=HN9SM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 rounded-xl bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          Visiter Fizz.ca
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <Footer {...footerDataFr} />
+
+  <script>
+    document.getElementById('hiw-copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText('HN9SM').then(() => {
+        const textEl = document.getElementById('hiw-copy-text');
+        if (textEl) {
+          const originalText = textEl.textContent;
+          textEl.textContent = 'Copié!';
+          setTimeout(() => {
+            textEl.textContent = originalText;
+          }, 2000);
+        }
+      });
+    });
+  </script>
+</Layout>

@@ -1,0 +1,37 @@
+﻿---
+const reviewSchema = {
+  '@context': 'https://schema.org/',
+  '@type': 'Review',
+  itemReviewed: {
+    '@type': 'Product',
+    name: 'Fizz Mobile',
+    description: 'A no-contract mobile and internet provider with rollover data, loyalty perks, and flexible plans.',
+    image: 'https://fizzpromocode.ca/assets/images/fizz-logo.png',
+    brand: {
+      '@type': 'Brand',
+      name: 'Fizz Communications',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'CAD',
+      availability: 'https://schema.org/InStock',
+      url: 'https://fizzpromocode.ca',
+    },
+  },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: '5',
+    bestRating: '5',
+  },
+  author: {
+    '@type': 'Organization',
+    name: 'Fizz Promo Code',
+    url: 'https://fizzpromocode.ca',
+  },
+  reviewBody:
+    'Fizz offers no-contract mobile and internet plans with unique features like rollover data, gift data, and loyalty perks. Powered by Videotron network with coverage in Quebec and Ontario. An excellent choice for Canadians seeking flexible, affordable wireless service.',
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />

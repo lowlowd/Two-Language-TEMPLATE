@@ -1,0 +1,62 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import BlogListFr from '~/components/blog/ListFr.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+import { fetchFrenchPosts, blogPostsPerPage } from '~/utils/blog-fr';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await fetchFrenchPosts();
+
+  // Generate pages starting from page 2 onwards (page 1 handled by index.astro)
+  const pages = paginate(posts, {
+    pageSize: blogPostsPerPage,
+  });
+
+  // Filter to exclude page 1 (already handled by index.astro)
+  return pages.filter((page) => page.params.page !== undefined);
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+const metadata = {
+  title: `Blogue — Page ${currentPage}`,
+  description:
+    'Guides Fizz, comparaisons et astuces pour économiser. Obtenez les meilleurs codes promo, comparez les forfaits mobiles et économisez sur vos factures sans-fil au Canada.',
+  robots: {
+    index: false, // Don't index paginated pages
+    follow: true,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+
+// Fix prev URL for page 2 to go back to /fr/blogue (not /fr/blogue/1)
+const prevUrl = currentPage === 2 ? '/fr/blogue' : page.url.prev;
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle="Conseils, guides et astuces pour économiser sur les forfaits mobiles et internet Fizz!">
+      Blogue Fizz
+    </Headline>
+    <BlogListFr posts={page.data} />
+    <Pagination prevUrl={prevUrl} nextUrl={page.url.next} />
+  </section>
+
+  <Footer {...footerDataFr} />
+</Layout>

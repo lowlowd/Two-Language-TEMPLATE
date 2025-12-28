@@ -1,0 +1,530 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQSchema from '~/components/common/FAQSchema.astro';
+import Image from '~/components/common/Image.astro';
+
+// Import images for proper Astro asset handling
+import fizzSpeedtest from '~/assets/images/localized/fr/fizz-speedtest.png';
+import fizzReferralCodeEntry from '~/assets/images/localized/fr/fizz-referral-code-entry.png';
+
+// Import blog images
+import fizzBetaCoverage from '~/assets/images/blog/fizz-beta-western-canada-coverage.png';
+import fizzDataGifting from '~/assets/images/blog/fizz-data-gifting-complete-guide.png';
+import fizzMyRewards from '~/assets/images/blog/fizz-my-rewards-level-up-guide.png';
+import fizzVoLTE from '~/assets/images/blog/fizz-volte-emergency-calls-fix.png';
+
+// Import French navigation data
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+
+// Pure Astro clipboard button component (no React hydration needed)
+import ClipboardButton from '~/components/ui/ClipboardButton.astro';
+
+// FAQ data for schema (French)
+const faqItems = [
+  {
+    title: 'Quel est le code promo Fizz pour 2025?',
+    description:
+      'Le code promo Fizz actuel est <strong>HN9SM</strong>. Utilisez-le pour obtenir 40 $ de rabais sur votre première facture. Entrez le code lors de votre inscription pour réclamer votre rabais.',
+  },
+  {
+    title: 'Comment fonctionne le programme de parrainage Fizz?',
+    description:
+      "Lorsque vous vous inscrivez avec un code promo Fizz, vous obtenez un crédit de 40 $ appliqué après deux mois. Une fois membre, vous pouvez partager votre propre code pour gagner des crédits quand vos amis s'inscrivent.",
+  },
+  {
+    title: 'Fizz est-il disponible dans ma région?',
+    description:
+      "Fizz fonctionne sur le réseau Vidéotron. La couverture est excellente au Québec et s'étend en Ontario. Consultez fizz.ca pour vérifier la couverture dans votre localité.",
+  },
+  {
+    title: 'Y a-t-il des contrats avec Fizz?',
+    description:
+      'Non! Fizz est complètement sans contrat. Vous pouvez modifier ou annuler votre forfait à tout moment sans pénalité.',
+  },
+  {
+    title: 'Puis-je conserver mon numéro de téléphone actuel?',
+    description:
+      "Oui, vous pouvez transférer votre numéro existant vers Fizz gratuitement. Le processus prend de 2 à 4 heures pendant les heures d'affaires.",
+  },
+  {
+    title: 'Fizz offre-t-il un service internet?',
+    description:
+      "Oui, Fizz offre l'internet résidentiel en plus des forfaits mobiles. Vous pouvez combiner les deux services pour des économies supplémentaires.",
+  },
+  {
+    title: 'Quels modes de paiement Fizz accepte-t-il?',
+    description:
+      "Fizz accepte les cartes de crédit, les cartes de débit et les paiements préautorisés. Toute la facturation et la gestion du compte se fait via l'application Fizz.",
+  },
+  {
+    title: 'Comment obtenir du soutien de Fizz?',
+    description:
+      "Fizz est un opérateur numérique. Le soutien est disponible via l'application Fizz, le clavardage en ligne et les forums communautaires. Il n'y a pas de magasins physiques.",
+  },
+];
+
+// Metadata for French homepage
+const metadata = {
+  title: 'Code promo Fizz 2025 : obtenez 40 $ de bonus (vérifié)',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <FAQSchema faqs={faqItems} />
+  <Header {...headerDataFr} />
+
+  <Hero>
+    <Fragment slot="title">
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading dark:text-gray-200">
+        Obtenez un bonus de 40 $ avec ce code promo Fizz
+      </h1>
+    </Fragment>
+    <Fragment slot="subtitle">
+      <p class="text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
+        Inscrivez-vous à Fizz avec <strong>HN9SM</strong> pour débloquer votre bonus!
+      </p>
+    </Fragment>
+  </Hero>
+
+  <section
+    class="relative not-prose scroll-mt-[72px] bg-white dark:bg-slate-900 py-4 md:py-8 -mt-16 md:-mt-20 mb-8 md:mb-0"
+  >
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="flex flex-col items-center max-w-5xl mx-auto">
+        <!-- Copy Code and Visit Fizz Buttons -->
+        <ClipboardButton
+          referralCode="HN9SM"
+          buttonText="Copier le code promo Fizz"
+          visitButtonText="Visiter Fizz.ca"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="relative not-prose scroll-mt-[72px] py-12 md:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <!-- Left Column: 3/5 - Steps -->
+        <div class="lg:col-span-3 space-y-8">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 font-heading text-purple-600 dark:text-purple-400">
+            Comment utiliser notre code promo Fizz
+          </h2>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Inscrivez-vous à Fizz</h3>
+              <p class="text-gray-600">
+                Téléchargez l'application Fizz ou visitez fizz.ca pour créer votre compte. Choisissez parmi les forfaits
+                mobiles ou internet.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Entrez le code promo</h3>
+              <p class="text-gray-600">
+                Lors du paiement, entrez le code promo <strong>HN9SM</strong> pour appliquer votre rabais de 40 $. Cherchez
+                la case de parrainage dans la section « Résumé de la commande » juste avant de payer. Collez simplement notre
+                code promo Fizz pour réclamer l'offre.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Économisez 40 $</h3>
+              <p class="text-gray-600">
+                Votre crédit de 40 $ est appliqué deux mois après votre inscription. Profitez de forfaits abordables
+                sans contrat!
+              </p>
+            </div>
+          </div>
+
+          <!-- Referral Code Entry Screenshot -->
+          <div class="mt-8 bg-gray-50 dark:bg-slate-800 rounded-xl p-6">
+            <Image
+              src={fizzReferralCodeEntry}
+              alt="Comment entrer le code promo Fizz HN9SM lors du paiement"
+              class="rounded-lg shadow-md w-full"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column: 2/5 - Why Fizz -->
+        <div class="lg:col-span-2 bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-6 font-heading text-purple-600 dark:text-purple-400">
+            Pourquoi choisir Fizz?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            Parmi les forfaits mobiles et internet les moins chers au Canada. Vous pouvez obtenir une deuxième ligne
+            pour aussi peu que 6 $ et même si le réseau est 4G, je n'ai remarqué aucune différence notable pour la
+            navigation quotidienne et les vidéos en termes de vitesse ou de temps de chargement. J'ai obtenu en moyenne
+            45 Mbps en téléchargement et 9,5 Mbps en téléversement lors de mes tests de vitesse. Depuis le 17 décembre
+            2025, ils viennent de lancer la 5G et les vitesses sont encore plus rapides! Avec tous les rabais que Fizz
+            offre (qui sont permanents dans la plupart des cas), je trouve que ma facture est significativement plus
+            basse qu'avec Telus ou Rogers.
+          </p>
+          <Image
+            src={fizzSpeedtest}
+            alt="Résultats du test de vitesse Fizz 4G - 45 Mbps téléchargement, 10 Mbps téléversement"
+            class="rounded-lg shadow-md w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <div class="bg-gray-50 dark:bg-slate-800">
+    <Features
+      id="features"
+      tagline="Pourquoi Fizz?"
+      title="Le choix intelligent pour le mobile et l'internet"
+      subtitle="Fizz offre des forfaits flexibles et abordables sans contrat. Accumulez des avantages au fil du temps et économisez plus longtemps vous restez."
+      items={[
+        {
+          title: 'Sans contrat',
+          description: 'Flexibilité mois par mois. Modifiez ou annulez votre forfait à tout moment sans pénalité.',
+          icon: 'tabler:file-off',
+        },
+        {
+          title: 'Données reportées',
+          description:
+            'Les données inutilisées sont automatiquement reportées au mois suivant. Ne gaspillez plus jamais vos données.',
+          icon: 'tabler:refresh',
+        },
+        {
+          title: 'Avantages fidélité',
+          description:
+            "Plus vous restez avec Fizz, plus vous débloquez d'avantages. Obtenez des rabais, des données bonus et plus encore.",
+          icon: 'tabler:award',
+        },
+        {
+          title: 'Compatible eSIM',
+          description: "Activez instantanément avec l'eSIM. Plus besoin d'attendre qu'une carte SIM physique arrive.",
+          icon: 'tabler:device-mobile',
+        },
+        {
+          title: 'Don de données',
+          description: 'Partagez vos données inutilisées avec vos amis et votre famille qui sont aussi chez Fizz.',
+          icon: 'tabler:gift',
+        },
+        {
+          title: 'Excellente couverture',
+          description: 'Propulsé par le réseau Vidéotron avec une excellente couverture au Québec et en Ontario.',
+          icon: 'tabler:antenna-bars-5',
+        },
+      ]}
+    />
+  </div>
+
+  <!-- Mid-page CTA Banner -->
+  <section class="relative py-10 md:py-14 bg-gradient-to-r from-purple-600 to-pink-500 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold italic mb-2">Prêt à économiser 40 $?</h2>
+      <p class="text-base md:text-lg mb-6 opacity-90">
+        Inscrivez-vous avec notre code promo Fizz et obtenez un crédit de 40 $ appliqué après deux mois. Sans contrat,
+        excellente couverture et forfaits abordables.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <button
+          id="mid-copy-btn"
+          type="button"
+          class="flex items-center justify-center gap-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 text-base shadow-md transition-all duration-200"
+        >
+          <span id="mid-copy-text">Copier le code promo</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </button>
+        <a
+          href="https://fizz.ca/?ref=HN9SM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 rounded-lg bg-white hover:bg-gray-100 text-orange-600 font-bold py-3 px-6 text-base shadow-md transition-all duration-200"
+        >
+          Visiter Fizz.ca
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <FAQs
+    id="faqs"
+    title="Questions fréquemment posées"
+    subtitle="Tout ce que vous devez savoir sur les codes promo Fizz et le programme de parrainage Fizz."
+    tagline="FAQ"
+    classes={{ container: 'max-w-6xl' }}
+    items={faqItems}
+  />
+
+  <!-- Blog Section - French Posts -->
+  <section class="relative py-12 md:py-16 lg:py-20">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex flex-col lg:justify-between lg:flex-row mb-8">
+        <div class="md:max-w-sm">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2">
+            Derniers articles du blogue
+          </h2>
+          <a href="/fr/blogue" class="text-primary-600 hover:underline">Voir tous les articles »</a>
+        </div>
+        <p class="text-muted dark:text-slate-400 lg:text-sm lg:max-w-md">
+          Conseils, guides et nouvelles sur les forfaits mobiles et internet Fizz.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Post 1: Couverture Fizz Bêta -->
+        <article class="group">
+          <a href="/fr/blogue/couverture-fizz-beta-ouest-canada" class="block">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <Image
+                src={fizzBetaCoverage}
+                alt="Couverture Fizz Bêta Ouest Canada"
+                class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+              Fizz Bêta : couverture Ouest Canada 2025
+            </h3>
+            <p class="text-muted text-sm line-clamp-3">
+              Tout sur Fizz Bêta en C.-B., Alberta et Manitoba. Cartes de couverture, prix bêta, avis de stabilité et
+              date de lancement officiel.
+            </p>
+          </a>
+        </article>
+
+        <!-- Post 2: Guide Don de Données -->
+        <article class="group">
+          <a href="/fr/blogue/guide-don-donnees-fizz" class="block">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <Image
+                src={fizzDataGifting}
+                alt="Guide Don de Données Fizz"
+                class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+              Guide complet du don de données Fizz
+            </h3>
+            <p class="text-muted text-sm line-clamp-3">
+              Tout sur le don de données Fizz. Quelles données donner, règles de timing, astuces de sécurité et échanges
+              sur Reddit et forums.
+            </p>
+          </a>
+        </article>
+
+        <!-- Post 3: Guide Récompenses -->
+        <article class="group">
+          <a href="/fr/blogue/guide-recompenses-fizz" class="block">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <Image
+                src={fizzMyRewards}
+                alt="Guide Mes Récompenses Fizz"
+                class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+              Guide Mes Récompenses Fizz 2025
+            </h3>
+            <p class="text-muted text-sm line-clamp-3">
+              Guide complet du programme Mes Récompenses. Comment gagner des points, monter de niveau et débloquer vos
+              cases d'amélioration.
+            </p>
+          </a>
+        </article>
+
+        <!-- Post 4: Correction VoLTE -->
+        <article class="group">
+          <a href="/fr/blogue/correction-appels-urgence-volte-fizz" class="block">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <Image
+                src={fizzVoLTE}
+                alt="Correction Appels Urgence VoLTE Fizz"
+                class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+              Appels d'urgence seulement? Correction VoLTE
+            </h3>
+            <p class="text-muted text-sm line-clamp-3">
+              Corrigez l'erreur « Appels d'urgence seulement » sur Fizz. Compatibilité VoLTE, fermeture du 3G et
+              vérification de votre téléphone.
+            </p>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="relative py-16 md:py-20 lg:py-24 bg-gradient-to-r from-purple-600 to-pink-500 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Prêt à économiser 40 $?</h2>
+      <p class="text-xl mb-8 opacity-90">
+        Inscrivez-vous avec notre code promo Fizz et obtenez un crédit de 40 $ appliqué après deux mois. Sans contrat,
+        excellente couverture et forfaits abordables.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Copy Code Button -->
+        <button
+          id="cta-copy-btn"
+          type="button"
+          class="flex items-center justify-center gap-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          <span id="cta-copy-text">Copier le code promo</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </button>
+        <!-- Visit Fizz Button -->
+        <a
+          href="https://fizz.ca/?ref=HN9SM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 rounded-xl bg-white hover:bg-gray-100 text-orange-600 font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          Visiter Fizz.ca
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerDataFr} />
+
+  <script>
+    document.getElementById('cta-copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText('HN9SM').then(() => {
+        const textEl = document.getElementById('cta-copy-text');
+        if (textEl) {
+          const originalText = textEl.textContent;
+          textEl.textContent = 'Copié!';
+          setTimeout(() => {
+            textEl.textContent = originalText;
+          }, 2000);
+        }
+      });
+    });
+
+    document.getElementById('mid-copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText('HN9SM').then(() => {
+        const textEl = document.getElementById('mid-copy-text');
+        if (textEl) {
+          const originalText = textEl.textContent;
+          textEl.textContent = 'Copié!';
+          setTimeout(() => {
+            textEl.textContent = originalText;
+          }, 2000);
+        }
+      });
+    });
+  </script>
+</Layout>

@@ -1,0 +1,67 @@
+﻿site:
+  name: Fizz Promo Code
+  site: 'https://fizzpromocode.ca'
+  base: '/'
+  trailingSlash: false
+
+  googleSiteVerificationId: ''
+
+metadata:
+  title:
+    default: Fizz Promo Code 2025 - Get $40 Off Your First Bill
+    template: '%s - Fizz Promo Code'
+  description: 'Get $40 off your first Fizz mobile or internet bill with our verified promo code. Best Fizz deals, plans comparison, and referral bonuses for 2025.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Fizz Promo Code
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+
+i18n:
+  language: en-CA
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/blog/%slug%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'blog'
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category'
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag'
+      robots:
+        index: true
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: 'G-0ZYHVWMHV1'
+
+ui:
+  theme: 'light:only'

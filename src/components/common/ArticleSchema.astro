@@ -1,0 +1,68 @@
+---
+/**
+ * ArticleSchema - Generates BlogPosting JSON-LD structured data for blog posts
+ * Supports both English and French content via the language prop
+ */
+
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updateDate?: Date;
+  image?: string;
+  author?: string;
+  url: string;
+  language?: 'en-CA' | 'fr-CA';
+}
+
+const {
+  title,
+  description,
+  publishDate,
+  updateDate,
+  image,
+  author = 'Sarah Rodriguez',
+  url,
+  language = 'en-CA',
+} = Astro.props;
+
+const siteUrl = 'https://fizzpromocode.ca';
+const fullUrl = url.startsWith('http') ? url : `${siteUrl}${url}`;
+const imageUrl = image?.startsWith('http')
+  ? image
+  : image
+    ? `${siteUrl}${image}`
+    : `${siteUrl}/assets/images/default.png`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: description,
+  image: imageUrl,
+  datePublished: publishDate.toISOString(),
+  dateModified: updateDate ? updateDate.toISOString() : publishDate.toISOString(),
+  inLanguage: language,
+  url: fullUrl,
+  author: {
+    '@type': 'Person',
+    name: author,
+    url: language === 'fr-CA' ? `${siteUrl}/fr/a-propos` : `${siteUrl}/about`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Fizz Promo Code',
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/favicon.svg`,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': fullUrl,
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} is:inline />

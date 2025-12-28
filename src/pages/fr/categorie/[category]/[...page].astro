@@ -1,0 +1,77 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import BlogListFr from '~/components/blog/ListFr.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+import { fetchFrenchPosts, blogPostsPerPage } from '~/utils/blog-fr';
+import type { Post } from '~/types';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const frenchPosts = await fetchFrenchPosts();
+
+  // Group posts by French category
+  const categoriesMap: Record<string, Post[]> = {};
+  frenchPosts.forEach((post) => {
+    if (post.category?.slug) {
+      if (!categoriesMap[post.category.slug]) {
+        categoriesMap[post.category.slug] = [];
+      }
+      categoriesMap[post.category.slug].push(post);
+    }
+  });
+
+  // Generate paginated paths for each category
+  return Object.entries(categoriesMap).flatMap(([categorySlug, posts]) =>
+    paginate(posts, {
+      params: { category: categorySlug },
+      pageSize: blogPostsPerPage || 6,
+      props: {
+        category: {
+          slug: categorySlug,
+          // Find the display name from translations or use slug
+          title: posts[0]?.category?.title || categorySlug,
+        },
+      },
+    })
+  );
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page, category } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+const metadata = {
+  title: `${category.title} — Page ${currentPage}`,
+  description: `Articles Fizz sur ${category.title.toLowerCase()} : guides, comparaisons et conseils pour optimiser votre forfait mobile ou internet.`,
+  robots: {
+    index: currentPage === 1,
+    follow: true,
+  },
+};
+
+// Fix prev URL for page 2 to go back to /fr/categorie/[slug] (not /fr/categorie/[slug]/1)
+const prevUrl = currentPage === 2 ? `/fr/categorie/${category.slug}` : page.url.prev;
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle={`Articles et guides sur ${category.title.toLowerCase()}`}>
+      {category.title}
+    </Headline>
+    <BlogListFr posts={page.data} />
+    <Pagination prevUrl={prevUrl} nextUrl={page.url.next} />
+  </section>
+
+  <Footer {...footerDataFr} />
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import BlogListFr from '~/components/blog/ListFr.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+import { fetchFrenchPosts, blogPostsPerPage } from '~/utils/blog-fr';
+
+export const prerender = true;
+
+// Fetch French posts and paginate manually for page 1
+const allPosts = await fetchFrenchPosts();
+const postsPerPage = blogPostsPerPage || 6;
+const posts = allPosts.slice(0, postsPerPage);
+const hasNextPage = allPosts.length > postsPerPage;
+
+const metadata = {
+  title: 'Blogue - Guides et Articles Fizz',
+  description:
+    'Guides Fizz, comparaisons et astuces pour économiser. Obtenez les meilleurs codes promo, comparez les forfaits mobiles et économisez sur vos factures sans-fil au Canada.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle="Conseils, guides et astuces pour économiser sur les forfaits mobiles et internet Fizz!">
+      Blogue Fizz
+    </Headline>
+    <BlogListFr posts={posts} />
+    <Pagination prevUrl={undefined} nextUrl={hasNextPage ? '/fr/blogue/2' : undefined} />
+  </section>
+
+  <Footer {...footerDataFr} />
+</Layout>

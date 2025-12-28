@@ -1,0 +1,79 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import BlogListFr from '~/components/blog/ListFr.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+import { fetchFrenchPosts, blogPostsPerPage } from '~/utils/blog-fr';
+import type { Post } from '~/types';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const frenchPosts = await fetchFrenchPosts();
+
+  // Group posts by French tag
+  const tagsMap: Record<string, Post[]> = {};
+  frenchPosts.forEach((post) => {
+    post.tags?.forEach((tag) => {
+      if (tag.slug) {
+        if (!tagsMap[tag.slug]) {
+          tagsMap[tag.slug] = [];
+        }
+        tagsMap[tag.slug].push(post);
+      }
+    });
+  });
+
+  // Generate paginated paths for each tag
+  return Object.entries(tagsMap).flatMap(([tagSlug, posts]) =>
+    paginate(posts, {
+      params: { tag: tagSlug },
+      pageSize: blogPostsPerPage || 6,
+      props: {
+        tag: {
+          slug: tagSlug,
+          // Find the display name from the first post or use slug
+          title: posts[0]?.tags?.find((t) => t.slug === tagSlug)?.title || tagSlug,
+        },
+      },
+    })
+  );
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page, tag } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+const metadata = {
+  title: `${tag.title} — Page ${currentPage}`,
+  description: `Articles Fizz sur ${tag.title.toLowerCase()} : guides pratiques, solutions et conseils pour votre forfait mobile et internet.`,
+  robots: {
+    index: currentPage === 1,
+    follow: true,
+  },
+};
+
+// Fix prev URL for page 2 to go back to /fr/etiquette/[slug] (not /fr/etiquette/[slug]/1)
+const prevUrl = currentPage === 2 ? `/fr/etiquette/${tag.slug}` : page.url.prev;
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline subtitle={`Articles et guides sur ${tag.title.toLowerCase()}`}>
+      {tag.title}
+    </Headline>
+    <BlogListFr posts={page.data} />
+    <Pagination prevUrl={prevUrl} nextUrl={page.url.next} />
+  </section>
+
+  <Footer {...footerDataFr} />
+</Layout>

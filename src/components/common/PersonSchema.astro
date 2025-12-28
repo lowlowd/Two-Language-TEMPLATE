@@ -1,0 +1,37 @@
+---
+/**
+ * PersonSchema - Generates Person JSON-LD structured data for authors
+ * Helps establish author credibility and may appear in Knowledge Panels
+ */
+
+export interface Props {
+  name: string;
+  jobTitle: string;
+  description: string;
+  image?: string;
+  url?: string;
+}
+
+const { name, jobTitle, description, image, url } = Astro.props;
+
+const siteUrl = 'https://fizzpromocode.ca';
+const imageUrl = image?.startsWith('http') ? image : image ? `${siteUrl}${image}` : undefined;
+const personUrl = url?.startsWith('http') ? url : url ? `${siteUrl}${url}` : undefined;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: name,
+  jobTitle: jobTitle,
+  description: description,
+  ...(imageUrl && { image: imageUrl }),
+  ...(personUrl && { url: personUrl }),
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Fizz Promo Code',
+    url: siteUrl,
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />

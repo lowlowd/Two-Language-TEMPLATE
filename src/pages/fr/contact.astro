@@ -1,0 +1,276 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerDataFr, footerDataFr } from '~/navigation-fr';
+
+const metadata = {
+  title: 'Contact - Nous Joindre',
+  description:
+    'Des questions sur les codes promo Fizz? Obtenez des réponses sur les rabais, les codes de parrainage et les forfaits mobiles. Obtenez un crédit de 40 $ sur votre forfait.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerDataFr} />
+
+  <!-- Hero Section with Purple Gradient Title -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
+    <div class="mb-8 text-center">
+      <h1
+        class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-400 dark:to-pink-400"
+      >
+        Nous Joindre
+      </h1>
+      <p class="text-xl text-muted dark:text-slate-400 mt-4">
+        Vous avez des questions sur les codes promo Fizz ou les forfaits mobiles? Nous sommes là pour vous aider!
+      </p>
+    </div>
+  </section>
+
+  <!-- How We Can Help Section -->
+  <section class="px-4 pb-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <h2 class="text-3xl font-bold mb-6 dark:text-white">Comment nous pouvons vous aider</h2>
+      <p class="text-muted dark:text-slate-400 mb-4">
+        Bien que nous ne soyons pas affiliés à Fizz Communications Inc., nous fournissons des informations complètes sur
+        :
+      </p>
+      <ul class="space-y-3 text-muted dark:text-slate-400">
+        <li>
+          <strong class="text-gray-900 dark:text-white">Codes promo Fizz :</strong> Codes vérifiés qui vous donnent un crédit
+          de 40 $ sur votre forfait
+        </li>
+        <li>
+          <strong class="text-gray-900 dark:text-white">Comparaisons de forfaits :</strong> Comment les forfaits mobiles
+          et internet Fizz se comparent aux concurrents comme Koodo, Fido et Virgin
+        </li>
+        <li>
+          <strong class="text-gray-900 dark:text-white">Programme de parrainage :</strong> Comment fonctionne le système
+          de parrainage Fizz et comment gagner des récompenses
+        </li>
+        <li>
+          <strong class="text-gray-900 dark:text-white">Guides de fonctionnalités :</strong> Analyses détaillées sur les
+          données reportées, les avantages fidélité, le don de données et plus encore
+        </li>
+        <li>
+          <strong class="text-gray-900 dark:text-white">Informations sur la couverture :</strong> Couverture du réseau Fizz
+          au Québec et en Ontario
+        </li>
+        <li>
+          <strong class="text-gray-900 dark:text-white">Dernières mises à jour :</strong> Offres promotionnelles actuelles
+          et changements de forfaits pour 2025
+        </li>
+      </ul>
+      <p class="text-muted dark:text-slate-400 mt-6">
+        Que vous cherchiez un code promo Fizz, que vous vouliez comprendre le programme de parrainage ou que vous
+        exploriez Fizz comme alternative à votre fournisseur actuel, nos guides couvrent tout ce dont vous avez besoin.
+      </p>
+    </div>
+  </section>
+
+  <!-- Common Questions Section -->
+  <section class="px-4 pb-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-slate-800 dark:to-slate-700 rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 dark:text-white">Questions courantes que nous abordons</h2>
+      <p class="text-muted dark:text-slate-400 mb-6">Les visiteurs veulent généralement savoir :</p>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">À propos des codes promo Fizz :</h3>
+          <ul class="space-y-2 text-muted dark:text-slate-400 list-disc list-inside">
+            <li>Quel est le code promo Fizz actuel pour 2025?</li>
+            <li>Comment utiliser un code de parrainage Fizz?</li>
+            <li>Combien puis-je économiser avec un code promo?</li>
+            <li>Quand mon rabais sera-t-il appliqué?</li>
+            <li>Puis-je utiliser un code promo sur n'importe quel forfait?</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">À propos des forfaits Fizz :</h3>
+          <ul class="space-y-2 text-muted dark:text-slate-400 list-disc list-inside">
+            <li>Fizz a-t-il des contrats?</li>
+            <li>Qu'est-ce que les données reportées et comment ça fonctionne?</li>
+            <li>Puis-je donner des données à d'autres utilisateurs Fizz?</li>
+            <li>Quels avantages fidélité sont disponibles?</li>
+            <li>Fizz supporte-t-il l'eSIM?</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Comparer Fizz :</h3>
+          <ul class="space-y-2 text-muted dark:text-slate-400 list-disc list-inside">
+            <li>Comment Fizz se compare-t-il à Koodo et Fido?</li>
+            <li>Fizz est-il moins cher que Telus, Rogers ou Bell?</li>
+            <li>Quel réseau Fizz utilise-t-il?</li>
+            <li>La couverture Fizz est-elle bonne dans ma région?</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Pour commencer :</h3>
+          <ul class="space-y-2 text-muted dark:text-slate-400 list-disc list-inside">
+            <li>Comment m'inscrire à Fizz?</li>
+            <li>Puis-je apporter mon propre téléphone?</li>
+            <li>Comment transférer mon numéro vers Fizz?</li>
+            <li>Y a-t-il une vérification de crédit?</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-muted dark:text-slate-400 mt-6">
+        Trouvez des réponses détaillées à toutes ces questions dans notre <a
+          href="/fr/#faqs"
+          class="text-primary hover:underline font-semibold">section FAQ complète</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Card -->
+  <section class="px-4 pb-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div
+      class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 text-center border border-gray-200 dark:border-slate-700"
+    >
+      <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-3 dark:text-white">Vous avez des questions?</h2>
+      <p class="text-muted dark:text-slate-400 mb-6">
+        Trouvez des réponses aux questions courantes sur les codes promo Fizz
+      </p>
+      <a
+        href="/fr/#faqs"
+        class="inline-block px-6 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-colors"
+      >
+        Voir la FAQ
+      </a>
+    </div>
+  </section>
+
+  <!-- Why We Created This Resource -->
+  <section class="px-4 pb-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      <h2 class="text-3xl font-bold mb-6 dark:text-white">Pourquoi nous avons créé cette ressource</h2>
+      <p class="text-muted dark:text-slate-400">
+        Trouver des informations fiables sur les codes promo Fizz et les offres actuelles ne devrait pas être compliqué.
+        Beaucoup de sites partagent des codes périmés ou des structures de rabais peu claires, laissant les Canadiens
+        confus quant aux économies réellement disponibles.
+      </p>
+      <p class="text-muted dark:text-slate-400 mt-4">
+        Nous avons créé Code Promo Fizz comme ressource centralisée pour :
+      </p>
+      <ul class="space-y-2 text-muted dark:text-slate-400">
+        <li>Des codes promo et offres de parrainage Fizz vérifiés et actuels</li>
+        <li>Des comparaisons honnêtes entre Fizz et ses concurrents</li>
+        <li>Des guides pratiques pour maximiser vos économies</li>
+        <li>Des explications claires des fonctionnalités uniques de Fizz</li>
+        <li>Des informations à jour sur les offres promotionnelles 2025</li>
+      </ul>
+      <p class="text-muted dark:text-slate-400 mt-4">
+        Notre objectif est simple : vous aider à prendre des décisions éclairées sur la pertinence de Fizz pour vos
+        besoins mobiles et internet, et si vous choisissez de vous inscrire, vous assurer d'obtenir le rabais maximum
+        disponible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stay Updated Section -->
+  <section class="px-4 pb-12 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div class="bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg p-8 text-white">
+      <h2 class="text-3xl font-bold mb-4">Restez informé sur les promotions Fizz</h2>
+      <p class="mb-6 opacity-90">
+        Les offres promotionnelles et codes promo Fizz changent périodiquement. La meilleure façon de vous assurer
+        d'obtenir le rabais maximum actuel est de :
+      </p>
+      <ol class="space-y-3 mb-6">
+        <li class="flex items-start">
+          <span class="font-bold mr-3">1.</span>
+          <span
+            ><strong>Ajouter cette page à vos favoris</strong> - Nous mettons à jour nos codes promo Fizz dès que de nouvelles
+            offres sont lancées</span
+          >
+        </li>
+        <li class="flex items-start">
+          <span class="font-bold mr-3">2.</span>
+          <span
+            ><strong>Consulter la page d'accueil</strong> - Les codes promo et rabais actuels sont toujours mis en évidence</span
+          >
+        </li>
+        <li class="flex items-start">
+          <span class="font-bold mr-3">3.</span>
+          <span
+            ><strong>Lire notre blogue</strong> - Les nouveaux articles couvrent les dernières fonctionnalités Fizz et astuces
+            d'économies</span
+          >
+        </li>
+      </ol>
+      <p class="text-sm opacity-90 italic">
+        Vérifiez toujours la promotion Fizz actuelle avant de vous inscrire pour vous assurer de recevoir le rabais
+        maximum disponible.
+      </p>
+    </div>
+  </section>
+
+  <!-- Official Support Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4 dark:text-white">Besoin du support officiel Fizz?</h2>
+      <p class="text-lg text-muted dark:text-slate-400 max-w-3xl mx-auto">
+        Pour les problèmes spécifiques à votre compte, les problèmes techniques ou le support officiel Fizz, veuillez
+        contacter Fizz directement via leurs canaux officiels.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div
+        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 text-center border border-gray-200 dark:border-slate-700"
+      >
+        <h3 class="text-xl font-semibold mb-4 dark:text-white">Visiter le Support Fizz</h3>
+        <a
+          href="https://fizz.ca/fr/faq"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-6 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-colors"
+        >
+          FAQ Fizz
+        </a>
+      </div>
+
+      <div
+        class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 text-center border border-gray-200 dark:border-slate-700"
+      >
+        <h3 class="text-xl font-semibold mb-4 dark:text-white">Communauté Fizz</h3>
+        <a
+          href="https://community.fizz.ca/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-6 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-colors"
+        >
+          Forum Communautaire
+        </a>
+      </div>
+    </div>
+
+    <p class="text-center text-sm text-muted dark:text-slate-400 italic">
+      Ce site web n'est pas affilié à Fizz Communications Inc. Pour le support officiel, utilisez toujours les méthodes
+      de contact officielles de Fizz.
+    </p>
+  </section>
+
+  <Footer {...footerDataFr} />
+</Layout>

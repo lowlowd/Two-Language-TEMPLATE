@@ -1,0 +1,36 @@
+---
+/**
+ * Language Picker Component
+ * Displays a toggle to switch between English and French
+ */
+import { getLangFromUrl, getAlternateUrl, getAlternateLang } from '~/i18n/utils';
+import { languages } from '~/i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const alternateLang = getAlternateLang(currentLang);
+const alternateUrl = getAlternateUrl(Astro.url);
+---
+
+<div class="language-picker">
+  <a
+    href={alternateUrl}
+    class="inline-flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+    aria-label={`Switch to ${languages[alternateLang]}`}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span>{languages[alternateLang]}</span>
+  </a>
+</div>

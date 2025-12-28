@@ -1,0 +1,419 @@
+﻿---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQSchema from '~/components/common/FAQSchema.astro';
+import Image from '~/components/common/Image.astro';
+
+// Import images for proper Astro asset handling
+import fizzSpeedtest from '~/assets/images/localized/en/fizz-speedtest.png';
+import fizzReferralCodeEntry from '~/assets/images/localized/en/fizz-referral-code-entry.png';
+
+// Import navigation data
+import { headerData, footerData } from '~/navigation';
+
+// Pure Astro clipboard button component (no React hydration needed)
+import ClipboardButton from '~/components/ui/ClipboardButton.astro';
+
+// FAQ data for schema
+const faqItems = [
+  {
+    title: 'What is the Fizz promo code for 2025?',
+    description:
+      'The current Fizz promo code is <strong>HN9SM</strong>. Use it to get $40 off your first bill. Enter the code during signup to claim your discount.',
+  },
+  {
+    title: 'How does Fizz referral program work?',
+    description:
+      'When you sign up with a Fizz promo code, you get $40 credit applied after two months. Once you are a member, you can share your own code to earn credits when friends join.',
+  },
+  {
+    title: 'Is Fizz available in my area?',
+    description:
+      'Fizz operates on the Videotron network. Coverage is best in Quebec, and expanding in Ontario. Check fizz.ca for coverage in your specific location.',
+  },
+  {
+    title: 'Are there any contracts with Fizz?',
+    description: 'No! Fizz is completely contract-free. You can change or cancel your plan anytime without penalties.',
+  },
+  {
+    title: 'Can I keep my current phone number?',
+    description:
+      'Yes, you can transfer your existing phone number to Fizz for free. The process takes 2-4 hours during business hours.',
+  },
+  {
+    title: 'Does Fizz offer internet service?',
+    description:
+      'Yes, Fizz offers home internet in addition to mobile plans. You can bundle both services for additional savings.',
+  },
+  {
+    title: 'What payment methods does Fizz accept?',
+    description:
+      'Fizz accepts credit cards, debit cards, and pre-authorized payments. All billing and account management is done through the Fizz app.',
+  },
+  {
+    title: 'How do I get support from Fizz?',
+    description:
+      'Fizz is a digital-first carrier. Support is available through the Fizz app, online chat, and community forums. There are no physical stores.',
+  },
+];
+
+// You can edit your site metadata in src/config.yaml
+const metadata = {
+  title: 'Fizz Referral Code 2025: Get $40 Bonus (Verified)',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <FAQSchema faqs={faqItems} />
+  <Header {...headerData} />
+
+  <Hero>
+    <Fragment slot="title">
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-4 font-heading dark:text-gray-200">
+        Get a $40 Bonus with this Fizz Referral Code
+      </h1>
+    </Fragment>
+    <Fragment slot="subtitle">
+      <p class="text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
+        Sign Up for Fizz with <strong>HN9SM</strong> to unlock your Bonus!
+      </p>
+    </Fragment>
+  </Hero>
+
+  <section
+    class="relative not-prose scroll-mt-[72px] bg-white dark:bg-slate-900 py-4 md:py-8 -mt-16 md:-mt-20 mb-8 md:mb-0"
+  >
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="flex flex-col items-center max-w-5xl mx-auto">
+        <!-- Copy Code and Visit Fizz Buttons -->
+        <ClipboardButton referralCode="HN9SM" buttonText="Copy Fizz Promo Code" />
+      </div>
+    </div>
+  </section>
+
+  <section class="relative not-prose scroll-mt-[72px] py-12 md:py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+        <!-- Left Column: 3/5 - Steps -->
+        <div class="lg:col-span-3 space-y-8">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 font-heading text-purple-600 dark:text-purple-400">
+            How to Use Our Fizz Referral Code
+          </h2>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Sign Up for Fizz</h3>
+              <p class="text-gray-600">
+                Download the Fizz app or visit fizz.ca to create your account. Choose from mobile or internet plans.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Enter Promo Code</h3>
+              <p class="text-gray-600">
+                During checkout, enter promo code <strong>HN9SM</strong> to apply your $40 discount. Look for the referral
+                box within the "Order Summary" section right before you pay. Simply paste our fizz promo code to claim the
+                offer.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Save $40</h3>
+              <p class="text-gray-600">
+                Your $40 credit is applied in two months after signing up. Enjoy affordable plans with no contracts!
+              </p>
+            </div>
+          </div>
+
+          <!-- Referral Code Entry Screenshot -->
+          <div class="mt-8 bg-gray-50 dark:bg-slate-800 rounded-xl p-6">
+            <Image
+              src={fizzReferralCodeEntry}
+              alt="How to enter Fizz referral code HN9SM during checkout"
+              class="rounded-lg shadow-md w-full"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column: 2/5 - Why Fizz -->
+        <div class="lg:col-span-2 bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 md:p-8">
+          <h3 class="text-2xl font-bold mb-6 font-heading text-purple-600 dark:text-purple-400">Why Choose Fizz?</h3>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            Some of the cheapest mobile and internet plans in Canada. You can get a second line for as little as $6 and
+            even though the network is 4G, I found no noticeable difference for everyday browsing and videos in terms of
+            speed or buffering. I averaged 45 Mbps download and 9.5 Mbps upload on average during my speedtests. As of
+            December 17, 2025, they just launched 5G and the speeds are even faster! With all the discounts that Fizz
+            offers (which are permanent in most cases), I find my bill is significantly lower than with Telus or Rogers.
+          </p>
+          <Image
+            src={fizzSpeedtest}
+            alt="Fizz 4G Speed Test Results - 45 Mbps Download, 10 Mbps Upload"
+            class="rounded-lg shadow-md w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <div class="bg-gray-50 dark:bg-slate-800">
+    <Features
+      id="features"
+      tagline="Why Fizz?"
+      title="The Smarter Way to Mobile and Internet"
+      subtitle="Fizz offers flexible, affordable plans with no contracts. Build perks over time and save more the longer you stay."
+      items={[
+        {
+          title: 'No Contracts',
+          description: 'Month-to-month flexibility. Change or cancel your plan anytime without penalties.',
+          icon: 'tabler:file-off',
+        },
+        {
+          title: 'Rollover Data',
+          description: 'Unused data automatically rolls over to the next month. Never waste your data again.',
+          icon: 'tabler:refresh',
+        },
+        {
+          title: 'Loyalty Perks',
+          description: 'The longer you stay with Fizz, the more perks you unlock. Get discounts, bonus data, and more.',
+          icon: 'tabler:award',
+        },
+        {
+          title: 'eSIM Ready',
+          description: 'Activate instantly with eSIM. No waiting for a physical SIM card to arrive.',
+          icon: 'tabler:device-mobile',
+        },
+        {
+          title: 'Gift Data',
+          description: 'Share your unused data with friends and family who are also on Fizz.',
+          icon: 'tabler:gift',
+        },
+        {
+          title: 'Great Coverage',
+          description: 'Powered by the Videotron network with excellent coverage across Quebec and Ontario.',
+          icon: 'tabler:antenna-bars-5',
+        },
+      ]}
+    />
+  </div>
+
+  <!-- Mid-page CTA Banner -->
+  <section class="relative py-10 md:py-14 bg-gradient-to-r from-purple-600 to-pink-500 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold italic mb-2">Ready to Save $40?</h2>
+      <p class="text-base md:text-lg mb-6 opacity-90">
+        Sign up with our Fizz promo code and get $40 credit applied after two months. No contracts, great coverage, and
+        affordable plans.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <button
+          id="mid-copy-btn"
+          type="button"
+          class="flex items-center justify-center gap-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 text-base shadow-md transition-all duration-200"
+        >
+          <span id="mid-copy-text">Copy Promo Code</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </button>
+        <a
+          href="https://fizz.ca/en?ref=HN9SM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 rounded-lg bg-white hover:bg-gray-100 text-orange-600 font-bold py-3 px-6 text-base shadow-md transition-all duration-200"
+        >
+          Visit Fizz.ca
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <FAQs
+    id="faqs"
+    title="Frequently Asked Questions"
+    subtitle="Everything you need to know about Fizz promo codes and the Fizz referral program."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={faqItems}
+  />
+
+  <!-- Blog Section -->
+  <BlogLatestPosts
+    id="blog"
+    title="Latest from Our Blog"
+    information="Tips, guides, and news about Fizz mobile and internet plans."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- Final CTA Section -->
+  <section class="relative py-16 md:py-20 lg:py-24 bg-gradient-to-r from-purple-600 to-pink-500 text-white">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Save $40?</h2>
+      <p class="text-xl mb-8 opacity-90">
+        Sign up with our Fizz promo code and get $40 credit applied after two months. No contracts, great coverage, and
+        affordable plans.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- Copy Code Button -->
+        <button
+          id="cta-copy-btn"
+          type="button"
+          class="flex items-center justify-center gap-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          <span id="cta-copy-text">Copy Promo Code</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </button>
+        <!-- Visit Fizz Button -->
+        <a
+          href="https://fizz.ca/en?ref=HN9SM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 rounded-xl bg-white hover:bg-gray-100 text-orange-600 font-bold py-4 px-8 text-lg shadow-md transition-all duration-200"
+        >
+          Visit Fizz.ca
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
+
+  <script>
+    document.getElementById('cta-copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText('HN9SM').then(() => {
+        const textEl = document.getElementById('cta-copy-text');
+        if (textEl) {
+          const originalText = textEl.textContent;
+          textEl.textContent = 'Copied!';
+          setTimeout(() => {
+            textEl.textContent = originalText;
+          }, 2000);
+        }
+      });
+    });
+
+    document.getElementById('mid-copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText('HN9SM').then(() => {
+        const textEl = document.getElementById('mid-copy-text');
+        if (textEl) {
+          const originalText = textEl.textContent;
+          textEl.textContent = 'Copied!';
+          setTimeout(() => {
+            textEl.textContent = originalText;
+          }, 2000);
+        }
+      });
+    });
+  </script>
+</Layout>

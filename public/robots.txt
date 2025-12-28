@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://fizzpromocode.ca/sitemap-index.xml
